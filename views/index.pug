@@ -1,0 +1,30 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title} 
+  #age
+    if age<18 
+      p 我的名字是 #{name} 我的年龄是 #{age}岁 但是我是未成年 我身高
+        if hight>=167
+          text #{hight} cm
+        else 
+          text 我没有那么高，我很自闭
+    else 
+      p 我的名字是 #{name} 我的年龄是 #{age}岁  我身高#{hight}cm
+  h2 我是大前端高薪#{classNum}期的学生
+  p 一下是我的同学们的信息
+    ul 
+      each item in  data
+        if item['name'] == 'blue'
+          li(
+            style = {color:'red'}
+          )= '名字：'+ item['name'] + '爱好' +`\n`
+            each bitem in item['hobby']
+              text=   bitem +`\n`
+        else
+           li= '名字：'+ item['name'] + '爱好' +`\n`
+            each bitem in item['hobby']
+              text=   bitem +`\n`
+
+
